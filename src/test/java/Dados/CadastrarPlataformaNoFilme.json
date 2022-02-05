@@ -1,0 +1,42 @@
+{
+  "categorias": [
+    {
+      "id": 3298749283,
+      "tipo": "Ação de ações"
+    }
+  ],
+  "descricao": "um filme cheio de aventura e romance",
+  "duracao": 1.2,
+  "nome": "amor covarde",
+  "plataformas": [
+    {
+      "descricao": "Plataforma online",
+      "filmeplataforma": [
+        {
+          "filme": {
+            "descricao": "Aventura com amor",
+            "duracao": 2.0,
+            "filmecategoria": [
+              {
+                "categoria": {
+                  "id": 4230487293,
+                  "tipo": "romance"
+                },
+                "id": 2121212112124345
+              }
+            ],
+            "filmeplataforma": [
+              null
+            ],
+            "id": 3019283019,
+            "nome": "string"
+          },
+          "id": 01928301
+        }
+      ],
+      "id": 32093810293,
+      "nome": "Lucas' Test",
+      "url": "lucas.qa.com"
+    }
+  ]
+}
