@@ -1,0 +1,42 @@
+{
+  "categorias": [
+    {
+      "id": 0,
+      "tipo": "string"
+    }
+  ],
+  "descricao": "string",
+  "duracao": 0,
+  "nome": "string",
+  "plataformas": [
+    {
+      "descricao": "string",
+      "filmeplataforma": [
+        {
+          "filme": {
+            "descricao": "string",
+            "duracao": 0,
+            "filmecategoria": [
+              {
+                "categoria": {
+                  "id": 0,
+                  "tipo": "string"
+                },
+                "id": 0
+              }
+            ],
+            "filmeplataforma": [
+              null
+            ],
+            "id": 0,
+            "nome": "string"
+          },
+          "id": 0
+        }
+      ],
+      "id": 0,
+      "nome": "string",
+      "url": "string"
+    }
+  ]
+}
