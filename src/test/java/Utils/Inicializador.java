@@ -1,7 +1,7 @@
 package Utils;
 
+import controlerTests.Controlers;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.util.HashMap;
@@ -22,9 +22,9 @@ public class Inicializador {
         map.put("email","aluno@email.com");
         map.put("senha","123456");
 
-        Response response =  postInicializador(map, ContentType.JSON, "auth");
-        assertEquals(200,response.statusCode());
-        return response.body().jsonPath().get("token");
+        Controlers.postInicializador(map, ContentType.JSON, "auth");
+        assertEquals(200,Controlers.getResponse().statusCode());
+        return Controlers.getResponse().jsonPath().get("token");
 
     }
 }

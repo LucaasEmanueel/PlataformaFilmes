@@ -4,15 +4,18 @@ import BD.Data;
 import Utils.Inicializador;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import maps.LoginMap;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static controlerTests.Controlers.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlataformaFilmesTest {
 
@@ -22,7 +25,7 @@ public class PlataformaFilmesTest {
     public void cadastrarPlataforma() throws IOException {
         String jsonBody = Data.lerjson("C:/Projetos/AutomacaoSemComplicacao/src/test/java/Dados/MassaDeDadosEditada.json");
         Map<String, String> header = new HashMap<>();
-        header.put("Authorization", "Bearer "+ token);
+        header.put("Authorization", "Bearer "+ LoginMap.token);
 
         Response response = post(jsonBody,ContentType.JSON,"plataformas", header);
         assertEquals(201,response.statusCode());
@@ -75,15 +78,19 @@ public class PlataformaFilmesTest {
         Response response = get("categorias", header);
         assertEquals(200, response.statusCode());
         System.out.println(response.jsonPath().get().toString());
+
+        assertEquals("Terror",response.jsonPath().get("tipo[2]"));
+        List<String> listTipo = response.jsonPath().get("tipo");
+        assertTrue(listTipo.contains("Terror"));
     }
 
     @Test
     public void validarConsultaCategoria(){
         Map<String, String> header = new HashMap<>();
         header.put("Authorization", "Bearer "+token);
-        Response reponse = get("categorias",header);
-        assertEquals("Drama",reponse.jsonPath().get("Tipo[3]"));
-        System.out.println(reponse.jsonPath().get("Tipo[0]").toString());
+        Response response = get("categorias",header);
+        assertEquals("Drama",response.jsonPath().get("Tipo[3]"));
+        System.out.println(response.jsonPath().get("Tipo[0]").toString());
     }
 
 
