@@ -1,11 +1,12 @@
 package steps;
 
+import Utils.Controlers;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 
 public class GenericSteps {
     @Then("valido que recebo status {int} no response")
-    public void validoQueReceboStatusNoResponse(Integer int1) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void validoQueReceboStatusNoResponse(int status) {
+        Assert.assertEquals(status, Controlers.getResponse().statusCode());
     }
 }

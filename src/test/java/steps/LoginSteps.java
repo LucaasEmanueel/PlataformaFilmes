@@ -1,33 +1,27 @@
 package steps;
 
-import BD.Data;
-import Utils.Inicializador;
-import controlerTests.Controlers;
+import Utils.Controlers;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import maps.LoginMap;
-
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 
 public class LoginSteps {
 
-    String url = "localhost:8080/";
-
+    String url = "http://localhost:8080/";
 
     @Given("que tenha um payload valida da API de Login")
     public void queTenhaUmPayloadValidaDaAPIDeLogin() {
         LoginMap.initLogin();
-        //RestUtils.setBaseURI();
-
+        Controlers.setBaseURI(url);
     }
+
     @When("envio uma requisicao do tipo POST")
     public void envioUmaRequisicaoDoTipoPOST() {
-        Controlers.postInicializador(LoginMap.getLogin(), ContentType.JSON,"auth");
+        Controlers.post(LoginMap.getLogin(), ContentType.JSON,"auth");
     }
 
     @Then("armazeno o token que recebo do response do Login")
@@ -36,8 +30,10 @@ public class LoginSteps {
     }
 
     @Given("que tenha um payload da API de Login  com as seguintes informações")
-    public void queTenhaUmPayloadDaAPIDeLoginComAsSeguintesInformações(io.cucumber.datatable.DataTable dataTable) {
-
+    public void queTenhaUmPayloadDaAPIDeLoginComAsSeguintesInformações(Map<String, String> map) {
+            LoginMap.initLogin();
+            Controlers.setBaseURI(url);
+            LoginMap.getLogin().putAll(map);
     }
 
 }

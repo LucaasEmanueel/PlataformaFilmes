@@ -1,11 +1,23 @@
-package controlerTests;
+package Utils;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import java.util.Map;
+
+import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 
 public class Controlers {
+
+
+    public static void setBaseURI(String uri){
+        baseURI = uri;
+    }
+
+    public static String getURI(){
+        return baseURI;
+    }
 
     private static Response response;
 
@@ -13,27 +25,23 @@ public class Controlers {
         return response;
     }
 
-    public void setResponse(Response response){
-        this.response = response;
-    }
-
     public static Response post(Object json, ContentType contentType, String endpoint, Map<String, String> header) {
         return response = given()
                 .relaxedHTTPSValidation()
                 .headers(header)
-                .contentType(contentType)
+                .contentType(contentType).log().all()
                 .body(json)
-                .when().post(endpoint)
+                .when().log().all().post(endpoint)
                 .thenReturn();
 
     }
 
-    public static Response postInicializador(Object json, ContentType contentType, String endpoint){
+    public static Response post(Object json, ContentType contentType, String endpoint){
         return response =  given()
                 .relaxedHTTPSValidation()
-                .contentType(contentType)
+                .contentType(contentType).log().all()
                 .body(json)
-                .when().post(endpoint)
+                .when().log().all().post(endpoint)
                 .thenReturn();
     }
 
@@ -41,9 +49,9 @@ public class Controlers {
         return response = given()
                 .relaxedHTTPSValidation()
                 .headers(header)
-                .contentType(contentType)
+                .contentType(contentType).log().all()
                 .body(json)
-                .when().put(endpoint)
+                .when().log().all().put(endpoint)
                 .thenReturn();
     }
 
@@ -51,7 +59,7 @@ public class Controlers {
         return response = given()
                 .relaxedHTTPSValidation()
                 .headers(header)
-                .when()
+                .when().log().all()
                 .get(endpoint)
                 .thenReturn();
 
@@ -61,7 +69,7 @@ public class Controlers {
         return response = given()
                 .relaxedHTTPSValidation()
                 .headers(header)
-                .when()
+                .when().log().all()
                 .delete(endpoint +"/"+ id)
                 .thenReturn();
     }

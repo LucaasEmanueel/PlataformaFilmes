@@ -1,7 +1,7 @@
 package plataformaFilmes;
 
 import BD.Data;
-import Utils.Inicializador;
+import Utils.Controlers;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import maps.LoginMap;
@@ -12,14 +12,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static controlerTests.Controlers.*;
+import static Utils.Controlers.*;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlataformaFilmesTest {
 
-    String token = Inicializador.validarLoginMap();
+    String token;
 
     @Test
     public void cadastrarPlataforma() throws IOException {
