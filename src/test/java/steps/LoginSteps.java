@@ -19,11 +19,6 @@ public class LoginSteps {
         Controlers.setBaseURI(url);
     }
 
-    @When("envio uma requisicao do tipo POST")
-    public void envioUmaRequisicaoDoTipoPOST() {
-        Controlers.post(LoginMap.getLogin(), ContentType.JSON,"auth");
-    }
-
     @Then("armazeno o token que recebo do response do Login")
     public void armazenoOTokenQueReceboDoResponseDoLogin() {
         LoginMap.token = Controlers.getResponse().jsonPath().get("token");
@@ -35,5 +30,18 @@ public class LoginSteps {
             Controlers.setBaseURI(url);
             LoginMap.getLogin().putAll(map);
     }
+
+    @When("envio uma requisicao do tipo {string}")
+    public void envioUmaRequisicaoDoTipoPOST() {
+        Controlers.post(LoginMap.getLogin(), ContentType.JSON,"auth");
+    }
+
+    @Given("que tenha usado o login com dados validos")
+    public void queTenhaUsadoOLoginComDadosValidos() {
+        queTenhaUmPayloadValidaDaAPIDeLogin();
+        envioUmaRequisicaoDoTipoPOST();
+        armazenoOTokenQueReceboDoResponseDoLogin();
+    }
+
 
 }
