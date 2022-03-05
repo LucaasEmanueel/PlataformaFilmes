@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class FilmesMaps {
 
+    public static int id;
     private static Map<String, String> header;
     private static Map<String, Object> filmes;
     private static Map<String, Object> categorias1;
@@ -73,8 +74,7 @@ public class FilmesMaps {
         filmes = new HashMap<>();
         filmes.put("nome","Alerta Vermelho");
         filmes.put("descricao", "Um alerta vermelho da Interpol é emitido e o agente do FBI Jhon Hartley assume o caso." +
-                "Durante sua busca, ele se vê diante de um assalto ousado e é forçado a se aliar ao maior de arte da história," +
-                "Nolan Booth, para capturar a ladra de arte mais procurada do mundo atualmente, Sarah  Black");
+                "Durante sua busca, ele se vê diante de um assalto ousado e é forçado a se aliar ao maior de arte da história");
         filmes.put("duracao", 1.35);
         filmes.put("categorias", listCategorias);
         filmes.put("plataformas", listPlataforma);

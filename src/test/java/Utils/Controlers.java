@@ -65,6 +65,17 @@ public class Controlers {
 
     }
 
+    public static Response get(Map<String, Object> param, String endpoint, Map<String, String> header){
+        return response = given()
+                .relaxedHTTPSValidation()
+                .headers(header)
+                .params(param)
+                .when().log().all()
+                .get(endpoint)
+                .thenReturn();
+
+    }
+
     public static Response delete(String endpoint, Integer id, Map<String, String> header){
         return response = given()
                 .relaxedHTTPSValidation()

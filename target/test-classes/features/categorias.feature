@@ -1,4 +1,4 @@
-@categorias @all
+@categorias
 Feature: lista de categorias
   Buscando a lista de categorias
 

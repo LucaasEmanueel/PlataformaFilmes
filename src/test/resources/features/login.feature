@@ -1,4 +1,4 @@
-@login @all
+@login
 Feature: Login na plataforma
   Testes da API de Login
 
