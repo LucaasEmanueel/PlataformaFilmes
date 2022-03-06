@@ -11,12 +11,9 @@ import java.util.Map;
 
 public class LoginSteps {
 
-    String url = "http://localhost:8080/";
-
     @Given("que tenha um payload valida da API de Login")
     public void queTenhaUmPayloadValidaDaAPIDeLogin() {
         LoginMap.initLogin();
-        Controlers.setBaseURI(url);
     }
 
     @Then("armazeno o token que recebo do response do Login")
@@ -27,7 +24,6 @@ public class LoginSteps {
     @Given("que tenha um payload da API de Login  com as seguintes informações")
     public void queTenhaUmPayloadDaAPIDeLoginComAsSeguintesInformações(Map<String, String> map) {
             LoginMap.initLogin();
-            Controlers.setBaseURI(url);
             LoginMap.getLogin().putAll(map);
     }
 
