@@ -1,0 +1,11 @@
+steps\LoginSteps.class
+maps\FilmesMaps.class
+maps\LoginMap.class
+runner\RunnerTest.class
+Transferencia\ContaTest.class
+BD\Data.class
+steps\FilmesSteps.class
+steps\CategoriasSteps.class
+plataformaFilmes\PlataformaFilmesTest.class
+steps\GenericSteps.class
+Utils\Controlers.class
