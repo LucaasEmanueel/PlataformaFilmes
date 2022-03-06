@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: runner.RunnerTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 29.939 sec <<< FAILURE! - in runner.RunnerTest
+Cadastro de filmes(CRUD de Filmes)  Time elapsed: 6.508 sec  <<< ERROR!
+java.net.ConnectException: Connection refused: connect
+
+Consulta Filme(CRUD de Filmes)  Time elapsed: 4.129 sec  <<< ERROR!
+java.net.ConnectException: Connection refused: connect
+
+Alteracao do filme(CRUD de Filmes)  Time elapsed: 4.165 sec  <<< ERROR!
+java.net.ConnectException: Connection refused: connect
+
+Consulta Filme apos alteração(CRUD de Filmes)  Time elapsed: 4.124 sec  <<< ERROR!
+java.net.ConnectException: Connection refused: connect
+
+Remover Filmes(CRUD de Filmes)  Time elapsed: 4.115 sec  <<< ERROR!
+java.net.ConnectException: Connection refused: connect
+
+Consulta Filme apos excluido(CRUD de Filmes)  Time elapsed: 4.118 sec  <<< ERROR!
+java.net.ConnectException: Connection refused: connect
+
